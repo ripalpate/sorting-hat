@@ -3,11 +3,10 @@ const getStartedButtonElem = document.getElementById('start-button');
 let counter = 0;
 // function for print to DOM
 const printToDom = (stringToPrint, divId) => {
-    const selectedDiv = document.getElementById(divId);
-    selectedDiv.innerHTML = stringToPrint;
-}
+    document.getElementById(divId).innerHTML += stringToPrint;
+  }
 
-// function to 
+// function to display student form
 const buildNewStudentForm = () => {
     let domString =`<div class="border border-light rounded bg-light">
                         <div class="form-group mb-5">
@@ -31,7 +30,7 @@ const randHouse = house[Math.floor(Math.random()*house.length)];
 
 // function to print Student Card
 const buildStudentCard = () => {
-    const studentInput = document.getElementById("student-input").value; 
+    let studentInput = document.getElementById("student-input").value; 
     let cardString = `<div class="card w-25 m-2 ">
                         <div class="card-body">
                             <h5 class="card-title">${studentInput}</h5>
@@ -39,10 +38,13 @@ const buildStudentCard = () => {
                             <button href="#" class="btn btn-danger deleteButton">Expel</button>
                         </div>
                       </div>`;
-    counter ++;
+    counter++;
     printToDom(cardString, 'student-card');
-
 }
+//function to reset the Student form
+// const resetStudentform = () => {
+//     document.getElementById('reset-form').reset();
+// }
 
 // function for assigning student card with sort button event listener
 const assignStudentCard =() => {
