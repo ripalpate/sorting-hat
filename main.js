@@ -1,6 +1,7 @@
 const house = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 const getStartedButtonElem = document.getElementById('start-button');
 let counter = 0;
+
 // function for print to DOM
 const printToDom = (stringToPrint, divId) => {
     document.getElementById(divId).innerHTML += stringToPrint;
@@ -25,26 +26,27 @@ const buildNewStudentForm = () => {
                     </div>`
     printToDom(domString, 'student-form');
 }
-// collect random house variable
-const randHouse = house[Math.floor(Math.random()*house.length)];
 
 // function to print Student Card
 const buildStudentCard = () => {
-    let studentInput = document.getElementById("student-input").value; 
+    const studentInput = document.getElementById("student-input").value; 
+    // collect random house variable
+    const randHouse = house[Math.floor(Math.random()*house.length)];
     let cardString = `<div class="card w-25 m-2 ">
                         <div class="card-body">
                             <h5 class="card-title">${studentInput}</h5>
                             <p class="card-text">${randHouse}</p>
-                            <button href="#" class="btn btn-danger deleteButton">Expel</button>
+                            <button href="#" class="btn btn-danger expelButton">Expel</button>
                         </div>
                       </div>`;
     counter++;
     printToDom(cardString, 'student-card');
 }
+
 //function to reset the Student form
-// const resetStudentform = () => {
-//     document.getElementById('reset-form').reset();
-// }
+const resetStudentform = () => {
+  document.getElementById('student-input').value ='';
+}
 
 // function for assigning student card with sort button event listener
 const assignStudentCard =() => {
@@ -52,8 +54,10 @@ const assignStudentCard =() => {
     sortButtonElem.addEventListener('click', (e) => {
         e.preventDefault();
         buildStudentCard();
+        resetStudentform();
     });
 }
+
 // Event Listener for Get Started button
 getStartedButtonElem.addEventListener("click", (e) => { 
     e.preventDefault();
