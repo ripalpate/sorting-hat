@@ -55,8 +55,23 @@ const assignStudentCard =() => {
         e.preventDefault();
         buildStudentCard();
         resetStudentform();
+        activateExpel();
     });
 }
+
+//function to delete Student Card
+const activateExpel = () => {
+    const expelButtons = document.getElementsByClassName('expelButton');  
+    for (let i = 0; i < expelButtons.length; i++) {
+      const buttonElem = expelButtons[i];
+      buttonElem.addEventListener("click", (e) => {
+        // remove card that the button was on
+        const buttonClicked = e.target;
+        const cardToExpel = buttonClicked.parentNode.parentNode;
+        cardToExpel.remove();
+      })
+    }
+  }
 
 // Event Listener for Get Started button
 getStartedButtonElem.addEventListener("click", (e) => { 
@@ -65,5 +80,6 @@ getStartedButtonElem.addEventListener("click", (e) => {
     assignStudentCard();
 }
 );
+
 
 
