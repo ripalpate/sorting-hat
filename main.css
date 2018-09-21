@@ -1,3 +1,7 @@
 body{
-    background-color: #999966;
+    background-image: url('http://allhdwallpapers.com/wp-content/uploads/2015/04/harry-potter-5.jpg');
+}
+.card {
+    width: 24.4%;
+    margin-top: 15px;
 }

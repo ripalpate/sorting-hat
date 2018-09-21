@@ -9,19 +9,19 @@ const printToDom = (stringToPrint, divId) => {
 
 // function to display student form
 const buildNewStudentForm = () => {
-    let domString =`<div class="border border-light rounded bg-light">
-                        <div class="form-group mb-5">
+    let domString =`<div class="border border-light rounded bg-light w-75 m-auto">
+                        <div class="form-group mb-5 ml-5">
                             <h3>Enter First Year's Name</h3>
                         </div>
-                        <form class="form-inline">
-                            <p class="h4">Student:</p>
-                        <div class="form-group mb-2">
-                            <label for="staticEmail2" class="sr-only">Student</label>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="text" class="form-control" id="student-input" placeholder="Name">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2" id="sort-button">Sort!</button>
+                        <form class="form-inline d-flex justify-content-center">
+                            <p class="h4 mr-4">Student:</p>
+                            <div class="form-group mb-2">
+                                <label for="staticEmail2" class="sr-only">Student</label>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <input type="text" class="form-control mr-5" id="student-input" placeholder="Name">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2 ml-3 pr-5 pl-5" id="sort-button">Sort!</button>
                         </form>
                     </div>`
     printToDom(domString, 'student-form');
@@ -32,7 +32,7 @@ const buildStudentCard = () => {
     const studentInput = document.getElementById("student-input").value; 
     // collect random house variable
     const randHouse = house[Math.floor(Math.random()*house.length)];
-    let cardString = `<div class="card w-25 m-2 ">
+    let cardString = `<div class="card m-2">
                         <div class="card-body">
                             <h5 class="card-title">${studentInput}</h5>
                             <p class="card-text">${randHouse}</p>
