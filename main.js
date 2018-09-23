@@ -41,6 +41,20 @@ const buildStudentCard = () => {
                       </div>`;
     counter++;
     printToDom(cardString, 'student-card');
+    cardOrder();
+}
+
+// function to order studend card by house
+const cardOrder =() => {
+    let divs = document.getElementsByClassName('student-card');
+    divs = Array.prototype.slice.call(divs);
+    let orderDivs = divs.sort((a,b) => {
+        return $(a).find("p").text() > $(b).find("p").text();});
+        for(let i = 0; i<orderDivs.length; i++){
+            var parent = orderDivs[i].parentNode;
+            var removeOldDiv = parent.removeChild(orderDivs[i]);
+            parent.appendChild(removeOldDiv);
+        }
 }
 
 //function to reset the Student form
