@@ -53,7 +53,12 @@ const assignStudentCard =() => {
     const sortButtonElem = document.getElementById('sort-button');
     sortButtonElem.addEventListener('click', (e) => {
         e.preventDefault();
+        const studentInput = document.getElementById("student-input").value; 
+        if(!studentInput){
+            alert('Please enter student name.');
+        } else {
         buildStudentCard();
+        }
         resetStudentform();
         activateExpel();
     });
