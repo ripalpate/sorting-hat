@@ -32,7 +32,7 @@ const buildStudentCard = () => {
     const studentInput = document.getElementById("student-input").value; 
     // collect random house variable
     const randHouse = house[Math.floor(Math.random()*house.length)];
-    let cardString = `<div class="card m-2 student-card ">
+    let cardString = `<div class="card m-2 student-card ${randHouse}">
                         <div class="card-body">
                             <h5 class="card-title student-name">${studentInput}</h5>
                             <p class="card-text">${randHouse}</p>
@@ -57,7 +57,7 @@ const assignStudentCard =() => {
         if(!studentInput){
             alert('Please enter student name.');
         } else {
-        buildStudentCard();
+            buildStudentCard();
         }
         resetStudentform();
         activateExpel();
