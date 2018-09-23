@@ -9,7 +9,7 @@ const printToDom = (stringToPrint, divId) => {
 
 // function to display student form
 const buildNewStudentForm = () => {
-    let domString =`<div class="border border-light rounded bg-light w-75 m-auto student-form">
+    let domString =`<div class=" w-75 m-auto student-form">
                         <div class="form-group mb-5 ml-5">
                             <h3 class="form-header">Enter First Year's Name</h3>
                         </div>
