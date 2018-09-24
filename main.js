@@ -34,7 +34,7 @@ const buildStudentCard = () => {
     const randHouse = house[Math.floor(Math.random()*house.length)];
     let cardString = `<div class="card m-2 student-card ${randHouse}">
                         <div class="card-body">
-                            <h5 class="card-title student-name">${studentInput}</h5>
+                            <h5 class="card-title student-name" id="student_name">${studentInput}</h5>
                             <p class="card-text">${randHouse}</p>
                             <button href="#" class="btn btn-danger pr-5 pl-5 expelButton">Expel</button>
                         </div>
@@ -42,6 +42,17 @@ const buildStudentCard = () => {
     counter++;
     printToDom(cardString, 'student-card');
     cardOrder();
+}
+
+// function to Voldermort student
+const voldemort = (voldemortStudent) => {
+    let voldemortCardString = `<div class="card m-2 voldemort-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${voldemortStudent}</h5>
+                                        <p class="card-text">Voldemort Student</p>
+                                    </div>
+                                </div>`;
+    printToDom(voldemortCardString,'voldemort-student');
 }
 
 // function to order studend card by house
@@ -87,8 +98,11 @@ const activateExpel = () => {
         // remove card that the button was on
         const buttonClicked = e.target;
         const cardToExpel = buttonClicked.parentNode.parentNode;
+        // collect student name and pass it to voldermort
+        let voldemortStudent =  buttonClicked.parentNode.childNodes[1].textContent;
+        voldemort(voldemortStudent);
         cardToExpel.remove();
-      })
+      });
     }
   }
 
